@@ -9,15 +9,15 @@
 #include <WiFiClient.h>
 #include <Pushsafer.h>
 
-#define USERNAME "MarieBiene"
-#define DEVICE_ID "eps32"
-#define DEVICE_CREDENTIAL "_CMf?udx%i@i6T3$"
-#define SSID "KeksKrümel"
-#define SSID_PASSWORD "haltdieschnauze"
-#define PushsaferKey "ITg8xYo5Bx8t50yvFsOa" // Pushsafer private or alias key
+#define USERNAME ""
+#define DEVICE_ID ""
+#define DEVICE_CREDENTIAL ""
+#define SSID ""
+#define SSID_PASSWORD ""
+#define PushsaferKey "" // Pushsafer private or alias key
 
-char ssid[] = "KeksKrümel";     // your network SSID (name)
-char password[] = "haltdieschnauze"; // your network key
+char ssid[] = "";     // your network SSID (name)
+char password[] = ""; // your network key
 bool daylight = true;
 
 /*WiFiClientSecure client;*/
@@ -157,7 +157,7 @@ void loop() {
 
   }else if ( t <= 25.0 ){
     input_temp.message = "Temperature: " + String(t);
-    input_temp.title = "zu kalt";
+    input_temp.title = "too cold!";
   }
   pushsafer.sendEvent(input_temp);
   Serial.println("Sent");
