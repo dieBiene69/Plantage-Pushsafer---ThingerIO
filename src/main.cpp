@@ -151,7 +151,7 @@ void loop() {
 
   //Temperature warnings
 
-  if ( t >= 40.0 ){
+  if ( t >= 30.0 ){
     input_temp.message = "Temperature: " + String(t);
     input_temp.title = "zu warm";
 
@@ -176,18 +176,23 @@ void loop() {
 
   // light warnings
 
-  if ( v_p_i <= 10.0 && daylight){
-    daylight = false;
-    input_light.message = "light= " + String(v_p_i);
-    input_light.title = "dark";
+  if (v_p_i <= 10.0){
+    if (daylight) {
+      daylight = false;
+      input_light.message = "light= " + String(v_p_i);
+      input_light.title = "dark";
+      pushsafer.sendEvent(input_light);
+      Serial.println("Sent");
+    }
+  } else {
+    if (!daylight){
+      daylight= true;
+      input_light.message = "light= " + String(v_p_i);
+      input_light.title = "bright";
+      pushsafer.sendEvent(input_light);
+      Serial.println("Sent");
+    }
   }
-  else if (v_p_i > 10.0 && !daylight){
-    daylight= true;
-    input_light.message = "light= " + String(v_p_i);
-    input_light.title = "bright";
-  }
-  pushsafer.sendEvent(input_light);
-  Serial.println("Sent");
 
  delay(6000);
 }
