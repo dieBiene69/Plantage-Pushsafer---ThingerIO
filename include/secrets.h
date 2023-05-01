@@ -3,7 +3,10 @@
 #define DEVICE_CREDENTIAL ""
 #define SSID ""
 #define SSID_PASSWORD ""
-#define PushsaferKey "" // Pushsafer private or alias key
+#define DEVICE "esp32"
+#define WIFI_SSID ""
+#define WIFI_PASSWORD ""
+#define API_URI "https://api-exam-wxel.onrender.com/Values"
 
-char ssid[] = "";     // your network SSID (name)
-char password[] = ""; // your network key
+char ssid[] = "bitraf";     // your network SSID (name)- Air4930_7CL3
+char password[] = "grimbadgerassault"; // your network key- dkmtdd9974
